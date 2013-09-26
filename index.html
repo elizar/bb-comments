@@ -204,6 +204,25 @@
       </section>
     </div>
     <script type="text/template" id="comment-template">
+
+      <% function getDate(date){ %>
+        <% var startDate = new Date(date); %>
+        <% var currentDate = new Date(); %>
+        <% var days = currentDate.getDate() - startDate.getDate(); %>
+        <% var hours = currentDate.getHours() - startDate.getHours(); %>
+        <% var minutes = currentDate.getMinutes() - startDate.getMinutes(); %>
+        <% var seconds = currentDate.getSeconds() - startDate.getSeconds(); %>
+        <% if (days > 0) { %>
+          <% return days + ' day' + (days > 1 ? 's' : ''); %>
+        <% } %>
+        <% if (hours > 0) { %>
+          <% return hours + ' hour' + (hours > 1 ? 's' : ''); %>
+        <% } %>
+        <% if (minutes > 0) { %>
+          <% return minutes + ' minute' + (minutes > 1 ? 's' : ''); %>
+        <% } %>
+        <% return seconds + ' second' + (seconds > 1 ? 's' : ''); %>
+      <% } %>
       <div class="comment">
         <a class="avatar">
           <img src="assets/images/fry_squint.jpg">
@@ -217,7 +236,7 @@
           <span>by</span>
           <a class="author"><strong><%= author %></strong></a>
           <div class="metadata">
-             <div class="date"><%= createdAt %></div>
+             <div class="date"><%= getDate(createdAt) %> ago</div>
           </div>
           <div class="text">
             <%= comment %>

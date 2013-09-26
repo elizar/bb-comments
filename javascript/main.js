@@ -1,5 +1,5 @@
 (function (w, $, Backbone, _) {
-	// prevent global chaos
+
   'use strict';
 
   var Comment = Backbone.Model.extend({idAttribute: '_id'}),
@@ -21,7 +21,15 @@
       'click .delete': 'handleDelete'
     },
     handleUpVote: function () {
-
+      var self = this;
+      self.model.sync('update', self.model, {
+        success: function (c) {
+          if (c.error || c.errors) {
+            return false;
+          }
+          return self.model.set(c);
+        }
+      });
     },
     handleDelete: function () {
       var self = this;

@@ -38,7 +38,6 @@ exports.put = function (req, res) {
 exports.del = function (req, res) {
 
   var id = req.params.id;
-  console.log(id);
   models.Comment.findByIdAndRemove(id, function (err, comment) {
 
     if (err) {
