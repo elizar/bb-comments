@@ -30,7 +30,7 @@
 
     handleDelete: function() {
       var self = this;
-      self.model.sync('delete', self.model, {
+      self.model.collection.sync('delete', self.model, {
         success: function(c) {
           self.removeView();
         }
