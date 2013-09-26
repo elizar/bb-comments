@@ -35,9 +35,9 @@ app.get('/', function (req, res) {
  * Mailing List Routes
  */
 app.get('/comments', comments.get);
+app.del('/comments/:id', comments.del);
 app.post('/comments', comments.post);
 app.put('/comments/:id', comments.put);
-app.del('/comments/:id', comments.del);
 
 app.listen(9090, function () {
   console.log('server running on port 9090');
