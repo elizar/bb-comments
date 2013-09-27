@@ -62,7 +62,9 @@
       'submit form': 'handleSubmit'
     },
     initialize: function () {
+
       var self = this;
+
       self.comment_list = $('#comment_list');
       self.author = $('form input[name=author]');
       self.comment = $('form textarea');
@@ -125,4 +127,4 @@
       comments.fetch();
     }
   };
-})(window, $, Backbone, _);
+}(window, $, Backbone, _));
